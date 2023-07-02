@@ -1,6 +1,9 @@
-import { IsNotEmpty } from "class-validator";
+import { IsNotEmpty, IsOptional } from "class-validator";
 
 export class ProductDto {
+@IsOptional()
+_id: any
+
 @IsNotEmpty()    
 name: string
 

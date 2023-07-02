@@ -7,12 +7,22 @@ export class ProductController {
   constructor(private productSer: ProductService) {}
 
   @Post('new')
-  newProduct(@Body() body:ProductDto) {
-    return this.productSer.addProduct(body)
+  newProduct(@Body() body: ProductDto) {
+    return this.productSer.addProduct(body);
+  }
+
+  @Post('edit')
+  editProduct(@Body() body: Partial<ProductDto>) {
+    return this.productSer.editProduct(body);
+  }
+
+  @Post('delete')
+  deleteProduct(@Body() body: Partial<ProductDto>) {
+    return this.productSer.deleteProduct(body);
   }
 
   @Get('')
-  getProducts(){
-    return this.productSer.getProducts()
+  getProducts() {
+    return this.productSer.getProducts();
   }
 }
