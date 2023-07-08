@@ -1,9 +1,11 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { IndividualServie } from './individual.service';
 import { IndividualDto } from './dtos/individual.dto';
 import { Individual_Type } from 'src/Models/individual.entity';
+import { AuthGuard } from 'src/AuthGuard';
 
 @Controller('/individual')
+@UseGuards(AuthGuard)
 export class IndividualController {
   constructor(private individualSer: IndividualServie) {}
 

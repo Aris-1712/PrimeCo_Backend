@@ -9,19 +9,22 @@ import { InboundModule } from './Modules/Inbound/inbound.module';
 import { ProductModule } from './Modules/Product/product.module';
 import { IndividualModule } from './Modules/Individual/individual.module';
 import { Trip } from './Models/trip.entity';
+import { AuthenticationModule } from './Modules/Authentication/Authentication.module';
+import { Auth } from './Models/auth.entity';
 
 @Module({
   imports: [
     InboundModule,
     ProductModule,
     IndividualModule,
+    AuthenticationModule,
     TypeOrmModule.forRoot({
       type: 'mongodb',
       url: 'mongodb+srv://aris:Arisgani1712@cluster0.hykda.mongodb.net/Prime?retryWrites=true&w=majority',
       useNewUrlParser: true,
       synchronize: true,
       logging: true,
-      entities: [Individual, Inbound, Product, Trip],
+      entities: [Individual, Inbound, Product, Trip, Auth],
     }),
   ],
   controllers: [AppController],

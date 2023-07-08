@@ -1,8 +1,10 @@
-import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, UseGuards } from "@nestjs/common";
 import { InboundService } from "./inbound.service";
 import { InboundBodyDto } from "./dtos/inbound.dto";
+import { AuthGuard } from "src/AuthGuard";
 
 @Controller('/inbound')
+@UseGuards(AuthGuard)
 export class InboundController {
    constructor(private inboundSer:InboundService){}
     
